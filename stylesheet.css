@@ -3,10 +3,27 @@
 	vertical-align: top;
 }*/
 
+#searchWrap{
+	margin-bottom: 50px;
+}
+
 .extraInfo {
 	display: none;
 	float: right;
-	width: 600px;
-	margin-right: auto;
 }
 
+.button {
+	float: left;
+	margin-right: 10px
+}
+
+hr{
+	border-width: 3px;
+}
+
+.title{
+	margin-right: 280px;
+	display: inline-block;
+	float: left;
+	margin-bottom: 10px;
+}
