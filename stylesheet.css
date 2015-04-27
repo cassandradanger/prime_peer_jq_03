@@ -1,0 +1,12 @@
+/*.row{
+	width: 200px;
+	vertical-align: top;
+}*/
+
+.extraInfo {
+	display: none;
+	float: right;
+	width: 600px;
+	margin-right: auto;
+}
+
