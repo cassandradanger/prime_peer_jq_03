@@ -2,26 +2,41 @@ var apikey = 'ba7280b6a052562af59a3776f9607c43984e6b6a';
 
 // Use this function to do stuff with your results. 
 // It is called after 'search' is executed.
+var count;
 function searchCallback(results) {
 	for(var i = 0; i < results.length; i++){
-		
-			$(".container").children().next().append(
-			"<div class = 'col-md-4 resultClick'><div class='button'><img src = " 
-			+ results[i].image.icon_url + 
-			"></div><div class = 'title'> <strong>Name:</strong> " 
-			+ results[i].name + 
-			"</div><div class='extraInfo'><strong>Description:</strong> " 
-			+ results[i].deck + 
-			"<br><strong>Platform:</strong> " 
-			+ results[i].platforms[0].name + 
-			"<br><strong>Release Date:</strong> " 
-			+ results[i].original_release_date + 
-			"</div></div>");
-			if(i % 3 ==0){
-				$(".container").append("<div class='row'></div>")
-			}
-}
-    console.log(results);
+		var image = results[i].image.icon_url;
+			var name = results[i].name;
+			var description = results[i].deck;
+			var releaseDate = "";
+			releaseDate = new Date (results[i].original_release_date).toLocaleDateString();
+			
+		for(var j = 0; j < results[i].platforms.length; j++){
+			var platforms = '';
+			platforms += results[i].platforms[j].name +"<br>";
+
+		}
+		//var rowNum = 0;
+		if(i % 3 == 0){	
+			count = i;
+			$(".container").append("<div class='row row" + count +"'></div>");
+		} 
+
+		$(".row" + count).append(
+		"<div class = 'col-md-4 resultClick'><div class='button'><img src = " 
+		+ image + 
+		"></div><div class = 'title'> <strong>Name:</strong> " 
+		+ name + 
+		"</div><div class='extraInfo'><strong>Description:</strong> " 
+		+ description + 
+		"<br><strong>Platforms:<br></strong> " 
+		+ platforms + 
+		"<br><strong>Release Date:</strong> " 
+		+ releaseDate + 
+		"</div></div>");
+
+	}
+   
 }
 
 $(document).ready(function() {
